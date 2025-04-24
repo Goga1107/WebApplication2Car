@@ -1,0 +1,54 @@
+﻿@model Car
+<h2>Edit Car</h2>
+
+
+
+<form asp-controller="Home" asp-action="EditCar" method="post">
+    <div class="form-group">
+        <label asp-for="Manufacturer">Manufacturer</label>
+        <input asp-for="Manufacturer" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Model">Model</label>
+        <input asp-for="Model" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Year">Year</label>
+        <input asp-for="Year" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Engine">Engine</label>
+        <input asp-for="Engine" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Price">Price</label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description">Description</label>
+        <input asp-for="Description" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Category" class="control-label">Category</label>
+        <select asp-for="Category" class="form-control">
+            <option value="Coupe">Coupe</option>
+            <option value="Sedan">Sedan</option>
+            <option value="Wagon">Wagon</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="imagePath">Car Image:</label>
+        <input type="file" name="ImagePath" id="ImagePath">
+    </div>
+   
+    <div class="form-group">
+        <label asp-for="IsForRent" class="checkbox-label">Is for Rent:</label>
+        <div class="checkbox-container">
+            <input asp-for="IsForRent" type="checkbox" id="isForRentCheckbox" class="checkbox-input" />
+            <label for="isForRentCheckbox" class="checkbox-custom"></label>
+        </div>
+       
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

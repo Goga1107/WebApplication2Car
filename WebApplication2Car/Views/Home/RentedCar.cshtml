@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Rent>
+
+<h1>Rented Cars</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>Car</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Rent Price</th>
+            <th>User</th>
+            <th>Cancel</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        @foreach (var rent in Model)
+        {
+            <tr>
+                <td>@rent.Car.Manufacturer @rent.Car.Model  <img src="@Url.Content("~/images/" + rent.Car.ImagePath)" class="card-img-top" alt="Car Image" style="max-width: 100px;"></td>
+                <td>@rent.StartDate</td>
+                <td>@rent.EndDate</td>
+                <td>@rent.RentPrice</td>
+                <td>@rent.UserId</td>
+                
+                <td><a class="btn btn-danger" asp-controller="Home" asp-action="CancelRent" asp-route-id="@rent.CarId">Cancel</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

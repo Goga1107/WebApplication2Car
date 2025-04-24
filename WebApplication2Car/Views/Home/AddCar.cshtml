@@ -1,0 +1,50 @@
+﻿@model Car
+@{
+    ViewData["Title"] = "Add Car";
+}
+
+<h1>Add Car</h1>
+
+<form asp-controller="Home" asp-action="AddCar" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Manufacturer" class="control-label"></label>
+        <input asp-for="Manufacturer" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Model" class="control-label"></label>
+        <input asp-for="Model" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Engine" class="control-label"></label>
+        <input asp-for="Engine" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Year" class="control-label"></label>
+        <input asp-for="Year" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Price" class="control-label"></label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <input asp-for="Description" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Category" class="control-label">Category</label>
+        <select asp-for="Category" class="form-control">
+            <option value="Coupe">Coupe</option>
+            <option value="Sedan">Sedan</option>
+            <option value="Wagon">Wagon</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="ImagePath" class="control-label">Car Image:</label>
+        <input type="file" name="ImagePath" id="ImagePath" class="form-control-file" />
+    </div>
+    <div class="form-group form-check">
+        <input asp-for="IsForRent" class="form-check-input" />
+        <label asp-for="IsForRent" class="form-check-label">Is for Rent</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

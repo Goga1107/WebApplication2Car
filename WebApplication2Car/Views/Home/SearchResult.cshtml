@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Car>
+<div class="container">
+    <div class="row justify-content-center">
+@foreach (var car in Model)
+{
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body text-center">
+                <h5 class="card-title">@car.Manufacturer @car.Model</h5>
+                <p class="card-text">Year: @car.Year</p>
+                <p class="card-text">Engine: @car.Engine</p>
+                <p class="card-text">Price: @car.Price</p>
+               
+                @if (!string.IsNullOrEmpty(car.ImagePath))
+                {
+                    <img src="@Url.Content("~/images/" + car.ImagePath)" class="card-img-top" alt="Car Image">
+                }
+                else
+                {
+                    <p>No image available</p>
+                }
+                <a class="btn btn-primary" href="@Url.Action("Description", "Home", new { id = car.Id })">Description</a>
+                        @if (User.GetUserId() == car.UserId)
+                        {
+                            <a class="btn btn-danger" asp-controller="Home" asp-action="EditCar" asp-route-id="@car.Id">Edit</a>
+                            <a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@car.Id">Delete</a>
+                        }
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            @if (User.GetUserId() != car.UserId)
+                            {
+                                @if (car.IsForRent)
+                                {
+                                    <td><a class="btn btn-danger" asp-controller="Home" asp-action="RentCar" asp-route-id="@car.Id">Rent</a></td>
+                                }
+                            }
+                        }
+                    </div>
+        </div>
+    </div>
+    
+  
+}

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Car>
+
+<div class="container">
+    <div class="row justify-content-center">
+        @foreach (var car in Model)
+        {
+            <div class="col-md-8">
+               
+                <div class="card mb-4">
+                    <div class="card-body text-center">
+                        @if (!string.IsNullOrEmpty(car.ImagePath))
+                        {
+                            <img src="@Url.Content("~/images/" + car.ImagePath)" class="card-img-top img-fluid" alt="Car Image"> 
+                        }
+                        else
+                        {
+                            <p>No image available</p>
+                        }
+                        <h3 class="card-title mt-3">@car.Manufacturer @car.Model</h3>
+                        <p class="card-text"><strong>Year:</strong> @car.Year</p>
+                        <p class="card-text"><strong>Engine:</strong> @car.Engine</p>
+                        <p class="card-text"><strong>Price:</strong> @car.Price</p>
+                        <p class="card-text"><strong>Description:</strong> @car.Description</p>
+                        <p class="card-text"><strong>User:</strong> @car.User</p>
+                        <p class="card-text"><strong>Phone:</strong> @car.User.PhoneNumber</p>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .card-body {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .card-text {
+        font-size: 1.2rem;
+    }
+</style>

@@ -1,0 +1,52 @@
+﻿
+body {
+    background-color: #f8f9fa;
+}
+
+h1 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+
+.checkbox-label {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.checkbox-container {
+    display: inline-block;
+}
+
+.checkbox-input {
+    display: none;
+}
+
+.checkbox-custom {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 2px solid #007bff;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.checkbox-input:checked + .checkbox-custom {
+    background-color: #007bff;
+    border-color: #007bff;
+}
